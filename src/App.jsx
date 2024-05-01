@@ -47,7 +47,7 @@ function App() {
 
   useEffect(() => {
     if (forO.length > 4 || forX.length > 4) {
-      setWinner("draw");
+      setWinner("Peace");
     }
     for (let i of winningCombo) {
       if (checkWinner(i, forO)) {
@@ -84,7 +84,12 @@ function App() {
               className="block"
               style={{
                 color: typeof item === "number" ? "transparent" : "#ffff",
-                pointerEvents: typeof item === "string" ? "none" : "auto",
+                pointerEvents:
+                  typeof item === "string"
+                    ? "none"
+                    : "auto" || isDisable
+                    ? ""
+                    : "none",
               }}
               onClick={() => addSymbol(item)}>
               {item}
